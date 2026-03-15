@@ -170,10 +170,24 @@ def start(message):
 
     bot.send_message(
         message.chat.id,
-        "Добро пожаловать в AnkleBreakStore🔥",
+        "Добро пожаловать в ANKLEBREAK 🔥",
         reply_markup=keyboard
     )
 
+    # уведомление админу
+    user = message.from_user.id
+    username = message.from_user.username
+    first_name = message.from_user.first_name
+
+    if username:
+        buyer = f"@{username}"
+    else:
+        buyer = first_name
+
+    text = f"👤 Новый пользователь запустил бота\n\nПользователь: {buyer}\nID: {user}"
+
+    bot.send_message(ADMIN_ID, text)
+    
 # КАТАЛОГ
 @bot.message_handler(func=lambda message: message.text == "🛍 Каталог")
 def catalog(message):
