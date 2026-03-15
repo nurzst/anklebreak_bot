@@ -170,7 +170,8 @@ def start(message):
 
     bot.send_message(
         message.chat.id,
-        "Добро пожаловать в ANKLEBREAK 🔥",
+        "Добро пожаловать в ANKLEBREAK 🔥
+        В этом боте вы можете оформлять заказы!",
         reply_markup=keyboard
     )
 
